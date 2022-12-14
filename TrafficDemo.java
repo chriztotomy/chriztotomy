@@ -1,13 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-//import javafx.application.Application;
-
 class TrafficLight extends JPanel implements ActionListener
 {
 	static JRadioButton r1,r2,r3;
 	static Color red1,green1,orange1;
-	public void TrafficLight()
+	public TrafficLight()
 	{
 		setBounds(0,0,600,480);
 		r1=new JRadioButton("RED");
@@ -28,30 +26,29 @@ class TrafficLight extends JPanel implements ActionListener
 		r2.addActionListener(this);
 		r3.addActionListener(this);
 	}
-
 	public void actionPerformed(ActionEvent e)
 	{
-		if(r1.isSelected()==true)
-		{
-			red1=Color.red;
-			green1=getBackground();
-			orange1=getBackground();
-		}
-		else if(r2.isSelected()==true)
-		{
-			red1=getBackground();
-			green1=Color.green;
-			orange1=getBackground();
-		}
-		else if(r3.isSelected()==true)
-		{
-			red1=getBackground();
-			green1=getBackground();
-			orange1=Color.orange;
-		}
-		repaint();
+	if(r1.isSelected()==true)
+	{
+		red1=Color.red;
+		green1=getBackground();
+		orange1=getBackground();
 	}
-	public void paintComponent(Graphics g) //to draw graphics on the screen
+	else if(r2.isSelected()==true)
+	{
+		red1=getBackground();
+		green1=Color.green;
+		orange1=getBackground();
+	}
+	else if(r3.isSelected()==true)
+	{
+		red1=getBackground();
+		green1=getBackground();
+		orange1=Color.orange;
+	}
+	repaint();   
+	}
+	public void paintComponent(Graphics g) 
 	{
 		g.drawOval(50,50,50,50);
 		g.drawOval(50,110,50,50);
@@ -66,14 +63,13 @@ class TrafficLight extends JPanel implements ActionListener
 }
 public class TrafficDemo
 {
-	public static void main(String[] args)
+	public static void main(String args[])
 	{
-		JFrame f1=new JFrame();
-		f1.setVisible(true);
-		f1.setSize(500,500);
-		f1.setLayout(null);
-		TrafficLight t=new TrafficLight();
-		f1.add(t);
+	JFrame f1=new JFrame();
+	f1.setVisible(true);
+	f1.setSize(500,500);
+	f1.setLayout(null);
+	TrafficLight t=new TrafficLight();
+	f1.add(t);
 	}
-}
-
+}   
